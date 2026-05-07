@@ -1127,8 +1127,8 @@
         const matchPos = document.getElementById('v2MatchPos');
         if (matchPos) {
           const r = matchPos.getBoundingClientRect();
-          // Sit tin to the right of the 'a', vertically centred on the text line
-          const y = r.top + (r.bottom - r.top) * 0.5;
+          // Sit tin to the right of the 'a', slightly below centre of text line
+          const y = r.top + (r.bottom - r.top) * 0.75;
           return {
             x: r.right + sz * 0.55,
             y,
