@@ -656,8 +656,6 @@
     /* Zero-width anchor at the end of "match" — used for tin positioning only */
     .v2-match-pos {
       display: inline-block;
-      width: 0;
-      overflow: hidden;
     }
   </style>
 </head>
@@ -713,7 +711,7 @@
               <span class="ln"></span><span>Our Story · 01</span>
             </div>
             <h2 class="intro__title">
-              Organic match<span id="v2MatchPos" class="v2-match-pos"></span><br>
+              Organic match<span id="v2MatchPos" class="v2-match-pos">a</span><br>
               <span class="it" id="v2ByYehTea">by Yeh Tea.</span>
             </h2>
           </div>
@@ -1129,10 +1127,10 @@
         const matchPos = document.getElementById('v2MatchPos');
         if (matchPos) {
           const r = matchPos.getBoundingClientRect();
-          // Mobile: centre tin on the "match" text line; desktop: sit at baseline
-          const y = isMobile ? r.top + (r.bottom - r.top) * 0.5 : r.bottom;
+          // Sit tin to the right of the 'a', vertically centred on the text line
+          const y = r.top + (r.bottom - r.top) * 0.5;
           return {
-            x: r.left + sz * 0.25,
+            x: r.right + sz * 0.55,
             y,
             sz
           };
